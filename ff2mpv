@@ -4,7 +4,11 @@
 require "json"
 
 len = STDIN.read(4).unpack1("L")
-url = JSON.parse(STDIN.read(len))["url"]
+j = JSON.parse(STDIN.read(len))
 
-pid = spawn "mpv", "--no-terminal", "--", url, in: :close, out: "/dev/null", err: "/dev/null"
+url = j["url"]
+ytdlformat = j["ytdlformat"]
+
+#pid = spawn "mpv", "--no-terminal", "--", url, in: :close, out: "/dev/null", err: "/dev/null"
+pid = spawn "mpv", "--no-terminal", "--ytdlformat="+ytdlformat, "--", url, in: :close, out: "/dev/null", err: "/dev/null"
 Process.detach pid

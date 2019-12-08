@@ -1,5 +1,11 @@
 function ff2mpv(url) {
-    browser.runtime.sendNativeMessage("ff2mpv", { url: url });
+  browser.storage.sync.get("ytdlformat")
+		.then((got) => {
+			if (got.ytdlformat)
+				browser.runtime.sendNativeMessage("ff2mpv", { url: url, ytdlformat: got.ytdlformat });
+			else
+				browser.runtime.sendNativeMessage("ff2mpv", { url: url });
+	});
 }
 
 browser.contextMenus.create({
@@ -19,6 +25,7 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
             break;
     }
 });
+
 
 browser.browserAction.onClicked.addListener((tab) => {
     ff2mpv(tab.url);

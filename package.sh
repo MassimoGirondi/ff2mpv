@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-zip ff2mpv.zip manifest.json ff2mpv.js icons/* LICENSE
+zip ff2mpv.zip ff2mpv manifest.json *.html *.js icons/* LICENSE

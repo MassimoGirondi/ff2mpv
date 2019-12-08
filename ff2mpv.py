@@ -5,7 +5,11 @@ from subprocess import Popen, DEVNULL
 def main():
     message = get_message()
     url = message.get('url')
-    args = ['mpv', '--no-terminal', '--', url]
+    ytdlformat = message.get('ytdlformat')
+    if ytdlformat:
+        args = ['mpv','--ytdl-format='+ytdlformat, '--no-terminal', '--', url]
+    else:
+        args = ['mpv', '--no-terminal', '--', url]
     Popen(args, stdin=DEVNULL, stdout=DEVNULL, stderr=DEVNULL)
     # Need to respond something to avoid "Error: An unexpected error occurred"
     # in Browser Console.
@@ -32,3 +36,4 @@ def send_message(message):
 
 if __name__ == '__main__':
     main()
+

@@ -32,10 +32,14 @@
             "strict_min_version": "50.0"
         }
     },
+		
+		"options_ui": {
+			"page": "options.html"
+		},
 
     "background": {
         "scripts": ["ff2mpv.js"]
     },
 
-    "permissions": ["nativeMessaging", "contextMenus", "activeTab"]
+    "permissions": ["nativeMessaging", "contextMenus", "activeTab", "storage"]
 }
