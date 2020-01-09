@@ -1,7 +1,7 @@
 function saveOptions(e) {
   e.preventDefault();
   browser.storage.sync.set({
-    ytdlformat: document.querySelector("#ytdlformat").value
+    ytdlformat: document.querySelector("#ytdlformat").value,
   });
 }
 
@@ -15,7 +15,7 @@ function restoreOptions() {
     console.log(`Error: ${error}`);
   }
 
-  var getting = browser.storage.sync.get("ytdlformat");
+  var getting = browser.storage.sync.get(["ytdlformat"]);
   getting.then(setCurrentChoice, onError);
 }
 

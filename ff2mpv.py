@@ -2,6 +2,7 @@
 import sys, struct, json
 from subprocess import Popen, DEVNULL
 
+
 def main():
     message = get_message()
     url = message.get('url')
@@ -14,6 +15,8 @@ def main():
     # Need to respond something to avoid "Error: An unexpected error occurred"
     # in Browser Console.
     send_message('ok')
+    
+
 
 
 # https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging#App_side

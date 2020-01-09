@@ -7,14 +7,17 @@
 
   <body>
 		
-		Set here the options for the youtube-dl format.
-		For example, to get a FullHD video as maximun resolution, use
-		<pre>
-		bestvideo[ext=mp4][width<=1920][height<=1080]+bestaudio[ext=m4a]/best[ext=mp4]/best
-		</pre>
-		<br/>
 		<form>
-        <label>youtube-dl format: <input type="text" id="ytdlformat" ></label>
+			Youtube-dl will retrieve the highest resolution available.<br/>
+			If you want a lower resolution, set it below:<br/>
+			<select id="ytdlformat">
+				<option value="bestvideo[ext=mp4][width<=480][height<=860]+bestaudio[ext=m4a]/best[ext=mp4]/best"> 480p</option>
+				<option value="bestvideo[ext=mp4][width<=1280][height<=720]+bestaudio[ext=m4a]/best[ext=mp4]/best"> HD</option>
+				<option value="bestvideo[ext=mp4][width<=1920][height<=1080]+bestaudio[ext=m4a]/best[ext=mp4]/best"> FullHD</option>
+				<option value="bestvideo[ext=mp4][width<=3840][height<=2160]+bestaudio[ext=m4a]/best[ext=mp4]/best"> 4K</option>
+				<option value=""> No limit</option>
+			</select><br/>
+			<br/>
         <button type="submit">Save</button>
     </form>
 
